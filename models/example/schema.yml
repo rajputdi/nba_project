@@ -1,21 +1,49 @@
-
 version: 2
 
 models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
-
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+  - name: players
+    description: "Contains NBA player information including personal details, team association, and load metadata."
+    columns:
+      - name: person_id
+        description: "Unique identifier for the player."
+        tests:
+          - not_null
+          - unique
+      - name: display_last_comma_first
+        description: "Player's name in 'Last, First' format."
+      - name: display_first_last
+        description: "Player's name in 'First Last' format."
+      - name: rosterstatus
+        description: "Roster status of the player."
+      - name: from_year
+        description: "Year the player started their NBA career."
+      - name: to_year
+        description: "Year the player ended their NBA career."
+      - name: playercode
+        description: "Player-specific code for referencing."
+      - name: player_slug
+        description: "Slug representation of the player's name."
+      - name: team_id
+        description: "Unique identifier for the player's team."
+      - name: team_city
+        description: "City of the player's team."
+      - name: team_name
+        description: "Name of the player's team."
+      - name: team_abbreviation
+        description: "Abbreviation of the player's team name."
+      - name: team_slug
+        description: "Slug representation of the team's name."
+      - name: team_code
+        description: "Code representation of the team's name."
+      - name: games_played_flag
+        description: "Indicator of whether the player has played any games."
+      - name: otherleague_experience_ch
+        description: "Other league experience details for the player."
+      - name: _dlt_load_id
+        description: "Load identifier for tracking data lineage."
+        tests:
+          - not_null
+      - name: _dlt_id
+        description: "Unique identifier for data lineage tracking."
+        tests:
+          - not_null
