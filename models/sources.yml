@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: nba_dataset
+    database: NBA
+    schema: NBA_DATASET
+    tables:
+      - name: players
+        description: "Contains NBA player information."
+        columns:
+          - name: person_id
+            description: "Unique identifier for the player."
+            tests:
+              - not_null
+              - unique
+          - name: _dlt_load_id
+            description: "Load identifier for tracking data lineage."
+            tests:
+              - not_null
+          - name: _dlt_id
+            description: "Unique identifier for data lineage tracking."
+            tests:
+              - not_null
